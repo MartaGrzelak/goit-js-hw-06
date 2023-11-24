@@ -1,4 +1,7 @@
-const formRegister = document.querySelector(".login-form")
+const formRegister = document.querySelector(".login-form");
+const login = document.querySelector(`[type="email"]`);
+const password = document.querySelector (`[type="password"]`);
+
 
 
 formRegister.addEventListener("submit", handleSubmit);
@@ -6,14 +9,14 @@ formRegister.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-  const form = event.target;
-  const loginForm = form.elements.login.value;
-  const passwordForm = form.elements.password.value;
+  
+  const loginForm = login.value;
+  const passwordForm = password.value;
   
   if (loginForm === "" || passwordForm === "") {
      alert("All spaces must be filled!");
   }
 
-  console.log(`Login: ${loginForm.value}, Password: ${passwordForm.value}`);
-  form.reset();
+  console.log(`Login: ${login.value}, Password: ${password.value}`);
+  formRegister.reset();
 }
